@@ -1,4 +1,4 @@
-import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export default async function Home({ searchParams }) { // "async" allows us to u
     manufacturer: searchParams.manufacturer || '',
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || '',
-    limit: searchParams.limit || 12,
+    limit: searchParams.limit || 8,
     model: searchParams.model || '',
     // (We can also give default values to the search params)
   });
@@ -46,6 +46,15 @@ export default async function Home({ searchParams }) { // "async" allows us to u
                 <CarCard car={car} />
               ))}
             </div>
+
+            <ShowMore 
+              pageNumber={(searchParams.limit || 8) / 8} // We are going to divide the page number by 12 to get the actual page number
+              isNext={(searchParams.limit || 8) > allCars?.length} 
+              /* API doesn't give us the total number of pages, 
+               so we calculate that by checking if the limit (under current params) 
+               is greater than the number of all cars generated 
+              (if that is the case, we don't have any new cars to show) */
+            />
           </section>
         ) : (
           <div className="home__error-container">
@@ -53,7 +62,6 @@ export default async function Home({ searchParams }) { // "async" allows us to u
             <p>{allCars?.message}</p>
           </div>    
         )}
-
 
       </div>
     </main>

@@ -56,7 +56,7 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
   } 
 
 // Because both the search bar and the filter components update the URL basically the same way, we can throw this into utils so we are not rewiting code 
-//  (this will also help if we add more filters down the line)
+//  (this will also help if we add more filters down the line, as well as that Show More button)
 export const updateSearchParams = (type: string, value: string) => {
     const searchParams = new URLSearchParams(window.location.search); 
 

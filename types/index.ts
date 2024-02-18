@@ -52,3 +52,8 @@ export interface CustomFilterProps {
     title: string;
     options: OptionProps[]; // Yeah that's right, we can have an interface inside an interface
 }
+
+export interface ShowMoreProps {
+    pageNumber: number;
+    isNext: boolean;
+}

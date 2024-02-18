@@ -4,8 +4,11 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 
 const Hero = () => {
-    const handleScroll = () => {    
-
+    const handleScroll = () => {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth"
+        });
     };
 
 
