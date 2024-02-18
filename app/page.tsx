@@ -3,8 +3,16 @@ import { fetchCars } from "@/utils";
 import Image from "next/image";
 
 
-export default async function Home() { // "async" allows us to use await
-  const allCars = await fetchCars();
+export default async function Home({ searchParams }) { // "async" allows us to use await
+  // We can immediately extract all the data from search params straight from props of a specific page
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    year: searchParams.year || 2022,
+    fuel: searchParams.fuel || '',
+    limit: searchParams.limit || 12,
+    model: searchParams.model || '',
+    // (We can also give default values to the search params)
+  });
 
   //console.log(allCars); // Because this component (in Next.js) is currently server-side, we see the console.log only in the terminal (not in the browser's console)
 
