@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Fragment } from 'react';
 
 import { Dialog, Transition } from '@headlessui/react'; // We use the Dialog component from headlessui to create a modal, and the Transition component to create a fade-in effect
+import { generateCarImageUrl } from '@/utils';
 
 interface CarDetailsModalProps { 
     // You can also define the props interface in the component itself as opposed to importing it from a types file
@@ -85,7 +86,7 @@ const CarDetailsModal = ({ isOpen, closeModal, car}: CarDetailsModalProps) => {
 
                             <div className="flex-1 flex flex-col gap-3">
                                 <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg'>
-                                    <Image src="/hero.png" 
+                                    <Image src={generateCarImageUrl(car, 'angle')} 
                                         alt="Car Image" 
                                         fill
                                         priority
@@ -94,7 +95,7 @@ const CarDetailsModal = ({ isOpen, closeModal, car}: CarDetailsModalProps) => {
                                 </div>
                                 <div className="flex gap-3">
                                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                                        <Image src="/hero.png" 
+                                        <Image src={generateCarImageUrl(car, '29')} 
                                             alt="Car Image" 
                                             fill
                                             priority
@@ -102,7 +103,7 @@ const CarDetailsModal = ({ isOpen, closeModal, car}: CarDetailsModalProps) => {
                                         />
                                     </div>
                                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                                        <Image src="/hero.png" 
+                                        <Image src={generateCarImageUrl(car, '33')}
                                             alt="Car Image" 
                                             fill
                                             priority
@@ -110,7 +111,7 @@ const CarDetailsModal = ({ isOpen, closeModal, car}: CarDetailsModalProps) => {
                                         />
                                     </div>
                                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                                        <Image src="/hero.png" 
+                                        <Image src={generateCarImageUrl(car, '13')}
                                             alt="Car Image" 
                                             fill
                                             priority
