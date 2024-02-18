@@ -42,3 +42,13 @@ export interface FilterProps {
     limit: number;
     model: string;
 }
+
+export interface OptionProps {
+    title: string;
+    value: string;
+}
+
+export interface CustomFilterProps {
+    title: string;
+    options: OptionProps[]; // Yeah that's right, we can have an interface inside an interface
+}
