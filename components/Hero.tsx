@@ -5,10 +5,13 @@ import CustomButton from "./CustomButton";
 
 const Hero = () => {
     const handleScroll = () => {
+        window.location.href="/#discover";
+        /*
         window.scrollTo({
             top: window.innerHeight,
             behavior: "smooth"
         });
+        */
     };
 
 

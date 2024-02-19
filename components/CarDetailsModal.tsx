@@ -50,7 +50,7 @@ const CarDetailsModal = ({ isOpen, closeModal, car}: CarDetailsModalProps) => {
                         <Dialog.Panel className="
                                 relative 
                                 w-full 
-                                max-w-g 
+                                max-w-lg 
                                 max-h-[90vh] 
                                 overflow-y-auto 
                                 transform 

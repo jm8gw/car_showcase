@@ -4,7 +4,8 @@ import { fetchCars } from "@/utils";
 import Image from "next/image";
 
 
-export default async function Home({ searchParams }) { // "async" allows us to use await
+export default async function Home({ searchParams }: { searchParams: any }) { 
+  // "async" allows us to use await
   // We can immediately extract all the data from search params straight from props of a specific page
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
