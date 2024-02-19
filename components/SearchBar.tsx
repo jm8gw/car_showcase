@@ -41,6 +41,8 @@ const SearchBar = () => {
         )
     }
 
+    // Basically, server-side rendering (provided by NEXT.js) is going to give us the ability to use search params from the URL, 
+    // as opposed to relying on states in client-side rendering
     const updateSearchParams = (model: string, manufacturer: string) => {
         const searchParams = new URLSearchParams(window.location.search); // If there was something there before, we need to know it and store it right here
 

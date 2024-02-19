@@ -5,8 +5,16 @@ import Image from "next/image";
 
 
 export default async function Home({ searchParams }: { searchParams: any }) { 
-  // "async" allows us to use await
-  // We can immediately extract all the data from search params straight from props of a specific page
+  // We can immediately extract all the data from search params straight from props of a specific page (the magic of server-side rendering!)
+  
+  /* One great advantage of server-side rendering as opposed to working with many manually mangaged states in client-side
+     is that since the URL gets changed based on our search params, it is very easy 
+     to share the link with someone else and have them see the same results as we do.
+     With client-side rendering, the URL stays sanitized and doesn't change, so any 
+     attempt to share will bring the person back to the general home page. 
+
+     Client-side rendering is great for user experience, but server-side rendering is great for sharing, SEO, and sometimes quicker performance/loading. 
+  */
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
     year: searchParams.year || 2022,
